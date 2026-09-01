@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Happy Birthday Inang Monica</title>
 
@@ -12,103 +15,360 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin:0;
     background:#050505;
     color:white;
     font-family:Georgia,serif;
+    overflow-x:hidden;
 }
 
-/* GOLD BACKGROUND */
+/* BACKGROUND */
 
-body:before{
-    content:"";
+.background{
     position:fixed;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
+    inset:0;
+    z-index:-5;
+
     background:
-    radial-gradient(circle at top,#4b3914,transparent 45%),
-    #050505;
-    z-index:-1;
+    radial-gradient(
+        circle at 50% 0%,
+        #5a4518 0%,
+        #181307 30%,
+        #050505 70%
+    );
+}
+
+/* GOLD GLOW */
+
+.glow{
+    position:fixed;
+
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+
+    background:#d9b75d22;
+
+    filter:blur(70px);
+
+    z-index:-3;
+
+    animation:move 8s infinite alternate;
+}
+
+.glow.one{
+    left:-100px;
+    top:20%;
+}
+
+.glow.two{
+    right:-100px;
+    bottom:10%;
+
+    animation-delay:2s;
+}
+
+@keyframes move{
+
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(100px,60px);
+    }
+
 }
 
 /* OPENING */
 
-#start{
+#opening{
+
     position:fixed;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
+
+    inset:0;
+
+    z-index:1000;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     padding:20px;
 
     background:
-    radial-gradient(circle,#4d3a15,#050505 65%);
+    radial-gradient(
+        circle,
+        #4d3a15,
+        #090806 70%
+    );
 
-    z-index:100;
+    transition:1s;
 }
 
-.startBox{
+.openBox{
+
     width:100%;
-    max-width:450px;
+
+    max-width:460px;
 
     text-align:center;
 
-    padding:35px 20px;
+    padding:40px 22px;
 
     border:1px solid #d9b75d;
-    border-radius:25px;
+
+    border-radius:28px;
 
     background:#11100c;
 
-    box-shadow:0 0 40px #a6812b55;
+    box-shadow:
+    0 0 50px #d9b75d33;
+
 }
 
 .gift{
-    font-size:65px;
-    margin-bottom:15px;
+
+    font-size:70px;
+
+    animation:bounce 1.7s infinite;
 }
 
-.label{
-    color:#c6a64e;
-    font-family:Arial,sans-serif;
-    font-size:10px;
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+}
+
+.openBox small{
+
+    color:#c7a74d;
+
     letter-spacing:4px;
+
+    font-family:Arial,sans-serif;
 }
 
-.startBox h1{
-    color:#edcf70;
-    font-size:50px;
+.openBox h1{
+
+    color:#efd16e;
+
+    font-size:52px;
+
     font-weight:normal;
+
     margin:20px 0 5px;
 }
 
-.startBox h2{
-    color:#eee5cd;
+.openBox h2{
+
+    color:#eee5cf;
+
     font-weight:normal;
 }
 
-.startBox p{
-    color:#aaa28f;
+.openBox p{
+
+    color:#aaa18d;
+
     line-height:1.8;
 }
 
 button{
+
+    font-family:Arial,sans-serif;
+
     cursor:pointer;
-    border:none;
 }
 
-.startButton{
+.openButton{
+
     margin-top:15px;
 
-    padding:15px 25px;
+    padding:16px 27px;
+
+    border:0;
+
+    border-radius:30px;
+
+    background:#d9b75d;
+
+    color:#0c0a05;
+
+    font-weight:bold;
+
+    box-shadow:
+    0 0 25px #d9b75d44;
+}
+
+/* CONTENT */
+
+#page{
+
+    display:none;
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding:30px 15px;
+}
+
+/* HEADER */
+
+.header{
+
+    text-align:center;
+
+    padding:45px 5px 55px;
+}
+
+.header small{
+
+    color:#b89745;
+
+    font-family:Arial,sans-serif;
+
+    letter-spacing:4px;
+}
+
+.header h1{
+
+    color:#efd16e;
+
+    font-size:
+    clamp(45px,12vw,82px);
+
+    font-weight:normal;
+
+    margin:22px 0 5px;
+
+    line-height:1;
+}
+
+.header h2{
+
+    color:#eee5ce;
+
+    font-weight:normal;
+
+    font-size:25px;
+}
+
+/* MESSAGE CARD */
+
+.card{
+
+    padding:30px 20px;
+
+    border:1px solid #d9b75d55;
+
+    border-radius:25px;
+
+    background:#0e0e0c;
+
+    box-shadow:
+    0 20px 70px #000;
+
+}
+
+.card p{
+
+    color:#ddd5c5;
+
+    font-size:16px;
+
+    line-height:1.95;
+
+    margin-bottom:27px;
+}
+
+.card b{
+
+    color:#efd16e;
+}
+
+.greeting{
+
+    color:#efd16e !important;
+
+    font-size:27px !important;
+}
+
+/* QUOTES */
+
+.quote{
+
+    text-align:center;
+
+    color:#e8c86a;
+
+    font-size:22px;
+
+    line-height:1.6;
+
+    padding:27px 5px;
+
+    margin:35px 0;
+
+    border-top:1px solid #d9b75d55;
+
+    border-bottom:1px solid #d9b75d55;
+}
+
+/* END */
+
+.end{
+
+    text-align:center;
+
+    padding:100px 10px 70px;
+}
+
+.end small{
+
+    color:#928669;
+
+    letter-spacing:3px;
+
+    font-family:Arial,sans-serif;
+}
+
+.end h2{
+
+    color:#e8c86b;
+
+    font-weight:normal;
+
+    font-size:30px;
+}
+
+.end p{
+
+    color:#aaa18d;
+
+    line-height:1.8;
+}
+
+.lastButton{
+
+    padding:16px 27px;
+
+    border:1px solid #d9b75d;
 
     border-radius:30px;
 
@@ -119,173 +379,32 @@ button{
     font-weight:bold;
 }
 
-/* MAIN */
+/* FINAL SURPRISE */
 
-#content{
-    display:none;
+#final{
 
-    width:100%;
-    max-width:850px;
-
-    margin:auto;
-
-    padding:35px 15px;
-}
-
-/* HEADER */
-
-.header{
-    text-align:center;
-
-    padding:35px 5px 55px;
-}
-
-.header small{
-    color:#b89640;
-
-    font-family:Arial,sans-serif;
-
-    letter-spacing:3px;
-}
-
-.header h1{
-    color:#edcf70;
-
-    font-size:
-    clamp(45px,12vw,80px);
-
-    font-weight:normal;
-
-    margin:20px 0 5px;
-}
-
-.header h2{
-    color:#eee4c9;
-
-    font-weight:normal;
-}
-
-/* CARD */
-
-.card{
-    padding:28px 20px;
-
-    background:#0e0e0c;
-
-    border:1px solid #d9b75d55;
-
-    border-radius:22px;
-
-    box-shadow:0 15px 50px #000;
-}
-
-.card p{
-    color:#ddd5c5;
-
-    font-size:16px;
-
-    line-height:1.9;
-
-    margin-bottom:25px;
-}
-
-.card b{
-    color:#e9cb6c;
-}
-
-.greeting{
-    color:#e9cb6c !important;
-    font-size:26px !important;
-}
-
-/* QUOTE */
-
-.quote{
-    text-align:center;
-
-    color:#e7c86a;
-
-    font-size:22px;
-
-    line-height:1.5;
-
-    padding:25px 5px;
-
-    margin:35px 0;
-
-    border-top:1px solid #c5a54f55;
-
-    border-bottom:1px solid #c5a54f55;
-}
-
-/* FINAL AREA */
-
-.finalArea{
-    text-align:center;
-
-    padding:90px 10px;
-}
-
-.finalArea small{
-    color:#958767;
-
-    font-family:Arial,sans-serif;
-
-    letter-spacing:3px;
-}
-
-.finalArea h2{
-    color:#e8c96b;
-
-    font-weight:normal;
-
-    font-size:28px;
-}
-
-.finalArea p{
-    color:#aaa18d;
-
-    line-height:1.8;
-}
-
-.finalButton{
-    padding:16px 25px;
-
-    border-radius:30px;
-
-    background:#d9b75d;
-
-    color:#0b0904;
-
-    font-weight:bold;
-}
-
-/* FINAL SCREEN */
-
-#surprise{
     display:none;
 
     position:fixed;
 
-    left:0;
-    top:0;
+    inset:0;
 
-    width:100%;
-    height:100%;
+    z-index:2000;
+
+    justify-content:center;
+
+    align-items:center;
 
     padding:20px;
 
     background:#000000ee;
-
-    z-index:200;
-
-    justify-content:center;
-    align-items:center;
 }
 
-.surpriseBox{
+.finalBox{
+
     width:100%;
-    max-width:500px;
+
+    max-width:520px;
 
     max-height:90vh;
 
@@ -295,36 +414,56 @@ button{
 
     padding:35px 20px;
 
-    background:
-    radial-gradient(circle at top,#463512,#0c0c09 70%);
-
     border:1px solid #e2c36b;
 
-    border-radius:25px;
+    border-radius:28px;
 
-    box-shadow:0 0 60px #c19b3c55;
+    background:
+    radial-gradient(
+        circle at top,
+        #493613,
+        #0b0b08 70%
+    );
+
+    box-shadow:
+    0 0 70px #d9b75d44;
+
 }
 
-.surpriseBox .big{
+.finalIcon{
+
     font-size:60px;
+
+    animation:pulse 1.5s infinite;
 }
 
-.surpriseBox h2{
-    color:#edcf70;
+@keyframes pulse{
 
-    font-size:35px;
+    50%{
+        transform:scale(1.15);
+    }
+
+}
+
+.finalBox h2{
+
+    color:#efd16e;
+
+    font-size:36px;
 
     font-weight:normal;
 }
 
-.surpriseBox h3{
-    color:#eee3c7;
+.finalBox h3{
+
+    color:#eee5cd;
 
     font-weight:normal;
 }
 
-.surpriseBox p{
-    color:#d5ccba;
+.finalBox p{
+
+    color:#d4cbbb;
 
     line-height:1.9;
 
@@ -332,13 +471,15 @@ button{
 }
 
 .special{
-    color:#edcf70 !important;
 
-    font-size:21px !important;
+    color:#efd16e !important;
+
+    font-size:22px !important;
 }
 
 .closeButton{
-    margin-top:15px;
+
+    margin-top:10px;
 
     padding:13px 25px;
 
@@ -348,31 +489,34 @@ button{
 
     background:transparent;
 
-    color:#e1c369;
+    color:#e4c66d;
 }
 
-/* GOLD PARTICLES */
+/* PARTICLES */
 
 .particle{
+
     position:fixed;
 
     bottom:-30px;
 
-    color:#e4c56b;
-
-    font-size:20px;
+    color:#e7c96b;
 
     pointer-events:none;
 
-    z-index:150;
+    z-index:3000;
 
-    animation:up 5s linear forwards;
+    animation:floatUp 5s linear forwards;
 }
 
-@keyframes up{
+@keyframes floatUp{
 
-    0%{
-        transform:translateY(0);
+    from{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
         opacity:0;
     }
 
@@ -380,14 +524,18 @@ button{
         opacity:1;
     }
 
-    100%{
-        transform:translateY(-110vh);
+    to{
+
+        transform:
+        translateY(-110vh)
+        rotate(360deg);
+
         opacity:0;
     }
 
 }
 
-/* SIMPLE MOBILE */
+/* MOBILE */
 
 @media(max-width:600px){
 
@@ -402,24 +550,44 @@ button{
 }
 
 </style>
+
 </head>
 
 <body>
 
+<div class="background"></div>
+
+<div class="glow one"></div>
+
+<div class="glow two"></div>
+
+
+<!-- MUSIC -->
+
+<audio id="birthdayMusic"
+       loop
+       preload="auto">
+
+    <source
+    src="Samantha_Ebert_-Flowers(mp3.pm).mp3"
+    type="audio/mpeg">
+
+</audio>
+
 
 <!-- OPENING -->
 
-<div id="start">
+<div id="opening">
 
-    <div class="startBox">
+    <div class="openBox">
 
         <div class="gift">
             🎁
         </div>
 
-        <div class="label">
-            A SPECIAL SURPRISE
-        </div>
+        <small>
+            A SPECIAL BIRTHDAY SURPRISE
+        </small>
 
         <h1>
             For You
@@ -435,13 +603,13 @@ button{
         </p>
 
         <p>
-            But I still made something special
-            for your birthday.
+            But I still prepared something
+            special for you.
         </p>
 
         <button
-        class="startButton"
-        onclick="startMessage()">
+        class="openButton"
+        onclick="openBirthday()">
 
             OPEN SURPRISE ✨
 
@@ -452,14 +620,14 @@ button{
 </div>
 
 
-<!-- CONTENT -->
+<!-- MAIN PAGE -->
 
-<div id="content">
+<div id="page">
 
     <div class="header">
 
         <small>
-            A SPECIAL BIRTHDAY MESSAGE
+            A SPECIAL MESSAGE MADE FOR YOU
         </small>
 
         <h1>
@@ -488,15 +656,17 @@ button{
 
         <p>
             I'm really sorry that I wasn't able to greet
-            you on your actual birthday.
-            Pero kahit late na, I still wanted to make
-            something special for you.
+            you on your actual birthday. Pero kahit late na,
+            I still wanted to create something special
+            just for you.
         </p>
 
         <p>
             I didn't want your birthday to simply pass
             without leaving you a message.
-            Kaya ginawa ko itong little surprise na ito.
+            Kaya kahit late na, here I am,
+            finally giving you the birthday greeting
+            that I should have given earlier.
         </p>
 
         <div class="quote">
@@ -506,33 +676,33 @@ button{
         <p>
             I hope your birthday was beautiful.
             I hope you had moments where you genuinely
-            smiled, laughed, and enjoyed your day.
+            smiled, laughed, relaxed, and enjoyed your day.
         </p>
 
         <p>
             I hope you were surrounded by people who
-            appreciate you and remind you how valuable
-            you are.
+            appreciate you, care about you, and remind
+            you that you are important.
         </p>
 
         <p>
             As you enter another chapter of your life,
-            I hope this year gives you more reasons
-            to smile, more peaceful days, more opportunities,
-            and more beautiful memories.
+            I hope this year brings you more peaceful days,
+            better opportunities, beautiful memories,
+            and countless reasons to smile.
         </p>
 
         <p>
             Most importantly, I pray that
-            <b>God</b> continues to guide you in
-            everything you do.
+            <b>God</b> continues to guide you
+            in everything you do.
         </p>
 
         <p>
             May He give you wisdom when you don't know
             what decision to make, strength when life
-            becomes difficult, and peace when things
-            become overwhelming.
+            becomes difficult, and peace whenever your
+            heart and mind become tired.
         </p>
 
         <div class="quote">
@@ -544,15 +714,15 @@ button{
         <p>
             There are still so many things ahead of you.
             There are memories you haven't made,
-            opportunities you haven't discovered,
             places you haven't seen,
+            opportunities you haven't discovered,
             and prayers that haven't been answered yet.
         </p>
 
         <p>
             So don't be afraid of what comes next.
-            You don't need to know everything today.
-            Sometimes you just need to trust God
+            You don't have to know everything today.
+            Sometimes you simply have to trust God
             one step at a time.
         </p>
 
@@ -582,13 +752,13 @@ button{
 
         <p>
             Kung may award sa pinaka-late na birthday
-            greeting, baka may chance akong manalo. 😭😂
+            greeting, baka may chance talaga akong manalo. 😭😂
         </p>
 
         <p>
             But I'd rather be late than never say it.
-            I hope you don't focus on how late this
-            message arrived, but on the sincerity behind it.
+            I hope you don't focus on how late this message
+            arrived, but on the sincerity behind it.
         </p>
 
         <p>
@@ -600,6 +770,7 @@ button{
 
         <p>
             May God open the right doors for you,
+            close the wrong ones,
             protect you wherever you go,
             and give you strength for every season
             that comes next.
@@ -650,12 +821,12 @@ button{
     </div>
 
 
-    <!-- LAST SURPRISE -->
+    <!-- LAST SURPRISE BUTTON -->
 
-    <div class="finalArea">
+    <div class="end">
 
         <small>
-            ONE MORE THING...
+            WAIT... THERE'S STILL ONE MORE THING
         </small>
 
         <h2>
@@ -663,12 +834,12 @@ button{
         </h2>
 
         <p>
-            May last surprise pa ako para sa'yo.
+            May isang final surprise pa ako para sa'yo.
         </p>
 
         <button
-        class="finalButton"
-        onclick="showSurprise()">
+        class="lastButton"
+        onclick="lastSurprise()">
 
             OPEN LAST SURPRISE ✨
 
@@ -679,13 +850,13 @@ button{
 </div>
 
 
-<!-- SURPRISE -->
+<!-- FINAL SURPRISE -->
 
-<div id="surprise">
+<div id="final">
 
-    <div class="surpriseBox">
+    <div class="finalBox">
 
-        <div class="big">
+        <div class="finalIcon">
             ✨🤍✨
         </div>
 
@@ -727,7 +898,7 @@ button{
         </p>
 
         <p>
-            And whenever you don't know what comes next,
+            Whenever you don't know what comes next,
             remember that God sees the whole story
             even when we can only see one page.
         </p>
@@ -738,7 +909,8 @@ button{
         </p>
 
         <p>
-            But I hope it still made you smile.
+            But I hope this little surprise
+            still made you smile.
         </p>
 
         <p class="special">
@@ -746,10 +918,9 @@ button{
         </p>
 
         <p>
-            May God bless you,
-            guide you,
-            protect you,
-            and give you many more beautiful years.
+            May God bless you, guide you,
+            protect you, and give you many more
+            beautiful years ahead.
         </p>
 
         <button
@@ -767,30 +938,49 @@ button{
 
 <script>
 
-/* OPEN MESSAGE */
+/* OPEN BIRTHDAY */
 
-function startMessage(){
+function openBirthday(){
 
-    document.getElementById("start").style.display="none";
+    document.getElementById("opening").style.display="none";
 
-    document.getElementById("content").style.display="block";
+    document.getElementById("page").style.display="block";
 
     window.scrollTo(0,0);
 
-    particles();
+    var music =
+    document.getElementById("birthdayMusic");
+
+    music.play()
+    .then(function(){
+
+        console.log("Music playing");
+
+    })
+    .catch(function(error){
+
+        console.log(
+            "Music could not start:",
+            error
+        );
+
+    });
+
+    createParticles();
 
 }
 
 
-/* GOLD EFFECT */
+/* GOLD PARTICLES */
 
-function particles(){
+function createParticles(){
 
     var symbols=[
         "✦",
         "✧",
         "✨",
-        "♡"
+        "♡",
+        "◆"
     ];
 
     var p=
@@ -806,7 +996,7 @@ function particles(){
     ];
 
     p.style.left=
-    Math.random()*100+"%";
+    Math.random()*100+"vw";
 
     p.style.fontSize=
     (12+Math.random()*20)+"px";
@@ -822,33 +1012,37 @@ function particles(){
 }
 
 
-/* CONTINUE GOLD EFFECT */
+/* CONTINUOUS EFFECT */
 
 setInterval(function(){
 
     if(
-        document.getElementById("content").style.display
+        document.getElementById("page").style.display
         ==="block"
     ){
 
-        particles();
+        createParticles();
 
     }
 
-},700);
+},800);
 
 
 /* FINAL SURPRISE */
 
-function showSurprise(){
+function lastSurprise(){
 
-    document.getElementById("surprise").style.display="flex";
+    document.getElementById("final").style.display="flex";
 
-    for(var i=0;i<30;i++){
+    for(
+        var i=0;
+        i<35;
+        i++
+    ){
 
         setTimeout(
-            particles,
-            i*50
+            createParticles,
+            i*40
         );
 
     }
@@ -860,11 +1054,11 @@ function showSurprise(){
 
 function closeSurprise(){
 
-    document.getElementById("surprise").style.display="none";
+    document.getElementById("final").style.display="none";
 
 }
 
 </script>
 
 </body>
-      </html>
+</html>
