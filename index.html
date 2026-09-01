@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Inang Monica</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#050505;
+    color:white;
+    font-family:Georgia,serif;
+}
+
+/* GOLD BACKGROUND */
+
+body:before{
+    content:"";
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top,#4b3914,transparent 45%),
+    #050505;
+    z-index:-1;
+}
+
+/* OPENING */
+
+#start{
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    background:
+    radial-gradient(circle,#4d3a15,#050505 65%);
+
+    z-index:100;
+}
+
+.startBox{
+    width:100%;
+    max-width:450px;
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    border:1px solid #d9b75d;
+    border-radius:25px;
+
+    background:#11100c;
+
+    box-shadow:0 0 40px #a6812b55;
+}
+
+.gift{
+    font-size:65px;
+    margin-bottom:15px;
+}
+
+.label{
+    color:#c6a64e;
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:4px;
+}
+
+.startBox h1{
+    color:#edcf70;
+    font-size:50px;
+    font-weight:normal;
+    margin:20px 0 5px;
+}
+
+.startBox h2{
+    color:#eee5cd;
+    font-weight:normal;
+}
+
+.startBox p{
+    color:#aaa28f;
+    line-height:1.8;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+}
+
+.startButton{
+    margin-top:15px;
+
+    padding:15px 25px;
+
+    border-radius:30px;
+
+    background:#d9b75d;
+
+    color:#100e08;
+
+    font-weight:bold;
+}
+
+/* MAIN */
+
+#content{
+    display:none;
+
+    width:100%;
+    max-width:850px;
+
+    margin:auto;
+
+    padding:35px 15px;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+
+    padding:35px 5px 55px;
+}
+
+.header small{
+    color:#b89640;
+
+    font-family:Arial,sans-serif;
+
+    letter-spacing:3px;
+}
+
+.header h1{
+    color:#edcf70;
+
+    font-size:
+    clamp(45px,12vw,80px);
+
+    font-weight:normal;
+
+    margin:20px 0 5px;
+}
+
+.header h2{
+    color:#eee4c9;
+
+    font-weight:normal;
+}
+
+/* CARD */
+
+.card{
+    padding:28px 20px;
+
+    background:#0e0e0c;
+
+    border:1px solid #d9b75d55;
+
+    border-radius:22px;
+
+    box-shadow:0 15px 50px #000;
+}
+
+.card p{
+    color:#ddd5c5;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+    margin-bottom:25px;
+}
+
+.card b{
+    color:#e9cb6c;
+}
+
+.greeting{
+    color:#e9cb6c !important;
+    font-size:26px !important;
+}
+
+/* QUOTE */
+
+.quote{
+    text-align:center;
+
+    color:#e7c86a;
+
+    font-size:22px;
+
+    line-height:1.5;
+
+    padding:25px 5px;
+
+    margin:35px 0;
+
+    border-top:1px solid #c5a54f55;
+
+    border-bottom:1px solid #c5a54f55;
+}
+
+/* FINAL AREA */
+
+.finalArea{
+    text-align:center;
+
+    padding:90px 10px;
+}
+
+.finalArea small{
+    color:#958767;
+
+    font-family:Arial,sans-serif;
+
+    letter-spacing:3px;
+}
+
+.finalArea h2{
+    color:#e8c96b;
+
+    font-weight:normal;
+
+    font-size:28px;
+}
+
+.finalArea p{
+    color:#aaa18d;
+
+    line-height:1.8;
+}
+
+.finalButton{
+    padding:16px 25px;
+
+    border-radius:30px;
+
+    background:#d9b75d;
+
+    color:#0b0904;
+
+    font-weight:bold;
+}
+
+/* FINAL SCREEN */
+
+#surprise{
+    display:none;
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    padding:20px;
+
+    background:#000000ee;
+
+    z-index:200;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.surpriseBox{
+    width:100%;
+    max-width:500px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    background:
+    radial-gradient(circle at top,#463512,#0c0c09 70%);
+
+    border:1px solid #e2c36b;
+
+    border-radius:25px;
+
+    box-shadow:0 0 60px #c19b3c55;
+}
+
+.surpriseBox .big{
+    font-size:60px;
+}
+
+.surpriseBox h2{
+    color:#edcf70;
+
+    font-size:35px;
+
+    font-weight:normal;
+}
+
+.surpriseBox h3{
+    color:#eee3c7;
+
+    font-weight:normal;
+}
+
+.surpriseBox p{
+    color:#d5ccba;
+
+    line-height:1.9;
+
+    font-size:16px;
+}
+
+.special{
+    color:#edcf70 !important;
+
+    font-size:21px !important;
+}
+
+.closeButton{
+    margin-top:15px;
+
+    padding:13px 25px;
+
+    border-radius:30px;
+
+    border:1px solid #d9b75d;
+
+    background:transparent;
+
+    color:#e1c369;
+}
+
+/* GOLD PARTICLES */
+
+.particle{
+    position:fixed;
+
+    bottom:-30px;
+
+    color:#e4c56b;
+
+    font-size:20px;
+
+    pointer-events:none;
+
+    z-index:150;
+
+    animation:up 5s linear forwards;
+}
+
+@keyframes up{
+
+    0%{
+        transform:translateY(0);
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+
+}
+
+/* SIMPLE MOBILE */
+
+@media(max-width:600px){
+
+    .card{
+        padding:25px 17px;
+    }
+
+    .card p{
+        font-size:16px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- OPENING -->
+
+<div id="start">
+
+    <div class="startBox">
+
+        <div class="gift">
+            🎁
+        </div>
+
+        <div class="label">
+            A SPECIAL SURPRISE
+        </div>
+
+        <h1>
+            For You
+        </h1>
+
+        <h2>
+            Inang Monica ✨
+        </h2>
+
+        <p>
+            I know I'm super late...
+            sobra talaga. 😭😂
+        </p>
+
+        <p>
+            But I still made something special
+            for your birthday.
+        </p>
+
+        <button
+        class="startButton"
+        onclick="startMessage()">
+
+            OPEN SURPRISE ✨
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- CONTENT -->
+
+<div id="content">
+
+    <div class="header">
+
+        <small>
+            A SPECIAL BIRTHDAY MESSAGE
+        </small>
+
+        <h1>
+            Happy Birthday
+        </h1>
+
+        <h2>
+            Inang Monica 🤍
+        </h2>
+
+    </div>
+
+
+    <div class="card">
+
+        <p class="greeting">
+            Dear Inang Monica,
+        </p>
+
+        <p>
+            First of all,
+            <b>Happy Birthday! 🎂✨</b>
+            I know this greeting is extremely late.
+            Sobra-sobra na talaga sa late. 😭😂
+        </p>
+
+        <p>
+            I'm really sorry that I wasn't able to greet
+            you on your actual birthday.
+            Pero kahit late na, I still wanted to make
+            something special for you.
+        </p>
+
+        <p>
+            I didn't want your birthday to simply pass
+            without leaving you a message.
+            Kaya ginawa ko itong little surprise na ito.
+        </p>
+
+        <div class="quote">
+            “Late doesn't mean forgotten.” 🤍
+        </div>
+
+        <p>
+            I hope your birthday was beautiful.
+            I hope you had moments where you genuinely
+            smiled, laughed, and enjoyed your day.
+        </p>
+
+        <p>
+            I hope you were surrounded by people who
+            appreciate you and remind you how valuable
+            you are.
+        </p>
+
+        <p>
+            As you enter another chapter of your life,
+            I hope this year gives you more reasons
+            to smile, more peaceful days, more opportunities,
+            and more beautiful memories.
+        </p>
+
+        <p>
+            Most importantly, I pray that
+            <b>God</b> continues to guide you in
+            everything you do.
+        </p>
+
+        <p>
+            May He give you wisdom when you don't know
+            what decision to make, strength when life
+            becomes difficult, and peace when things
+            become overwhelming.
+        </p>
+
+        <div class="quote">
+            Another year.<br>
+            Another chapter.<br>
+            Another chance to see God's goodness. ✨
+        </div>
+
+        <p>
+            There are still so many things ahead of you.
+            There are memories you haven't made,
+            opportunities you haven't discovered,
+            places you haven't seen,
+            and prayers that haven't been answered yet.
+        </p>
+
+        <p>
+            So don't be afraid of what comes next.
+            You don't need to know everything today.
+            Sometimes you just need to trust God
+            one step at a time.
+        </p>
+
+        <p>
+            Hindi man perfect ang journey,
+            every chapter still has a purpose.
+            Every experience can teach us something,
+            and every season can help us grow.
+        </p>
+
+        <p>
+            I hope you continue growing in wisdom,
+            faith, patience, and understanding.
+            And most importantly,
+            keep God at the center of your life.
+        </p>
+
+        <div class="quote">
+            God isn't finished with your story yet. 🤍
+        </div>
+
+        <p>
+            And yes...
+            I really need to apologize again because
+            this greeting is VERY late. 😂
+        </p>
+
+        <p>
+            Kung may award sa pinaka-late na birthday
+            greeting, baka may chance akong manalo. 😭😂
+        </p>
+
+        <p>
+            But I'd rather be late than never say it.
+            I hope you don't focus on how late this
+            message arrived, but on the sincerity behind it.
+        </p>
+
+        <p>
+            I genuinely wish you happiness,
+            peace, beautiful memories,
+            meaningful moments, answered prayers,
+            and God's guidance.
+        </p>
+
+        <p>
+            May God open the right doors for you,
+            protect you wherever you go,
+            and give you strength for every season
+            that comes next.
+        </p>
+
+        <p>
+            More birthdays.
+            More blessings.
+            More memories.
+            More laughter.
+            More opportunities.
+            More answered prayers.
+        </p>
+
+        <div class="quote">
+            You are worth celebrating. ✨
+        </div>
+
+        <p>
+            Once again,
+            <b>Happy Birthday, Inang Monica! 🎂🤍</b>
+        </p>
+
+        <p>
+            I'm really sorry for greeting you this late,
+            but I hope this little surprise still made
+            you smile even just a little.
+        </p>
+
+        <p>
+            Kahit late itong greeting,
+            sincere naman yung wish ko para sa'yo.
+            May God bless you, guide you, protect you,
+            and give you many more beautiful years.
+        </p>
+
+        <p>
+            I hope this new chapter becomes one of the
+            chapters you'll look back on someday and say,
+            <b>“God has been good.”</b>
+        </p>
+
+        <p class="greeting">
+            Happy Birthday once again,
+            Inang Monica. 🤍✨
+        </p>
+
+    </div>
+
+
+    <!-- LAST SURPRISE -->
+
+    <div class="finalArea">
+
+        <small>
+            ONE MORE THING...
+        </small>
+
+        <h2>
+            Akala mo tapos na? 👀
+        </h2>
+
+        <p>
+            May last surprise pa ako para sa'yo.
+        </p>
+
+        <button
+        class="finalButton"
+        onclick="showSurprise()">
+
+            OPEN LAST SURPRISE ✨
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- SURPRISE -->
+
+<div id="surprise">
+
+    <div class="surpriseBox">
+
+        <div class="big">
+            ✨🤍✨
+        </div>
+
+        <h2>
+            One Last Message
+        </h2>
+
+        <h3>
+            For Inang Monica
+        </h3>
+
+        <p>
+            Before you leave, I just want you
+            to remember one thing.
+        </p>
+
+        <p class="special">
+            YOU ARE WORTH CELEBRATING.
+        </p>
+
+        <p>
+            Another year has been added to your story,
+            and there are still many beautiful chapters
+            waiting for you.
+        </p>
+
+        <p>
+            There are still dreams to chase,
+            prayers to pray,
+            memories to make,
+            and moments that haven't happened yet.
+        </p>
+
+        <p>
+            So keep going.
+            Keep praying.
+            Keep trusting God.
+            Keep believing.
+        </p>
+
+        <p>
+            And whenever you don't know what comes next,
+            remember that God sees the whole story
+            even when we can only see one page.
+        </p>
+
+        <p>
+            And yes...
+            <b>SUPER LATE talaga itong greeting. 😂😭</b>
+        </p>
+
+        <p>
+            But I hope it still made you smile.
+        </p>
+
+        <p class="special">
+            Happy Birthday, Inang Monica! 🎂✨
+        </p>
+
+        <p>
+            May God bless you,
+            guide you,
+            protect you,
+            and give you many more beautiful years.
+        </p>
+
+        <button
+        class="closeButton"
+        onclick="closeSurprise()">
+
+            CLOSE 🤍
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* OPEN MESSAGE */
+
+function startMessage(){
+
+    document.getElementById("start").style.display="none";
+
+    document.getElementById("content").style.display="block";
+
+    window.scrollTo(0,0);
+
+    particles();
+
+}
+
+
+/* GOLD EFFECT */
+
+function particles(){
+
+    var symbols=[
+        "✦",
+        "✧",
+        "✨",
+        "♡"
+    ];
+
+    var p=
+    document.createElement("div");
+
+    p.className="particle";
+
+    p.innerHTML=
+    symbols[
+        Math.floor(
+            Math.random()*symbols.length
+        )
+    ];
+
+    p.style.left=
+    Math.random()*100+"%";
+
+    p.style.fontSize=
+    (12+Math.random()*20)+"px";
+
+    document.body.appendChild(p);
+
+    setTimeout(function(){
+
+        p.remove();
+
+    },5000);
+
+}
+
+
+/* CONTINUE GOLD EFFECT */
+
+setInterval(function(){
+
+    if(
+        document.getElementById("content").style.display
+        ==="block"
+    ){
+
+        particles();
+
+    }
+
+},700);
+
+
+/* FINAL SURPRISE */
+
+function showSurprise(){
+
+    document.getElementById("surprise").style.display="flex";
+
+    for(var i=0;i<30;i++){
+
+        setTimeout(
+            particles,
+            i*50
+        );
+
+    }
+
+}
+
+
+/* CLOSE */
+
+function closeSurprise(){
+
+    document.getElementById("surprise").style.display="none";
+
+}
+
+</script>
+
+</body>
+      </html>
